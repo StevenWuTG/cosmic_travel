@@ -1,0 +1,13 @@
+<h1><%= @scientist.name %></h1>
+
+<h2>Precious Missions:</h2>
+<ul>
+<% @scientist.missions.each do |mission|  %>
+    <li>Mission ID: <%= mission.id%> <%= link_to mission.name, mission_path(mission)%>      Planet:     <%=link_to mission.planet.name, planet_path(mission.planet)%> </li>
+
+<% end  %>
+</ul>
+
+<%= link_to 'Destroy', scientist_path(@scientist),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
